@@ -1,0 +1,24 @@
+<div class="container">
+  <br/>
+  <%= link_to 'New staff', new_doctor_path %>
+  <h3>Список сотрудников</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @doctors.each do |doctor| %>
+        <tr>
+          <td><%= doctor.id %></td>
+          <td><%= link_to  doctor.name, doctor_path(doctor) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <%= link_to 'Все больницы', '/hospitals' %>

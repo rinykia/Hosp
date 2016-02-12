@@ -1,0 +1,30 @@
+<div class="container">
+  <h3><%= @hospital.name %></h3>
+  <i>Режим редактирования</i><br/>
+  <i><%= flash[:notice] %></i>
+
+  <table>
+	  <tr>
+	    <td>Имя</td>
+	    <td>Действие</td>
+	  </tr>
+  	<% @hospital.personal.each do |element| %>
+	  <tr>
+	    <td><%= link_to element.name, doctor_path(element) %></td>
+	    <td><%= button_to "Удалить",{action: "remove_doctor", doctor_id: element.id} %></td>
+	  </tr>
+	  <% end %>
+  </table>
+  <hr/>
+  <table>
+  <%= form_for(@hospital) do |f| %>
+  	<tr>
+	    <td><%= f.select(:doctors_list, options_for_select(@hospital.avaible_doctors)) %></td>
+	    <td><%= f.submit "Добавить" %></td>
+	  </tr>
+  <% end %>	
+  </table>
+
+  <%= link_to 'Назад', @hospital %> |
+  <%= link_to 'К списку больниц', hospitals_path %>
+</div>

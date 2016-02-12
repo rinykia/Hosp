@@ -1,0 +1,12 @@
+<div class="container">
+  <h3>New Hospital</h3>
+  <%= form_for :hospital, url: hospitals_path do |f| %>
+  <p> 
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </p>
+  <p> 
+    <%= f.submit %>
+  </p>
+  <% end %>
+</div>

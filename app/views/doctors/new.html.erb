@@ -1,0 +1,22 @@
+<div class="container">
+  <h3>Новый сотрудник</h3>
+  <%= form_for :doctor, url: doctors_path do |f| %>
+    <label>Фамилия</label><br/>
+    <div class="field">
+      <%= f.text_field :name, class: "form-control" %>
+    </div><br/>
+
+    <label>Год рождения</label><br/>
+    <div class="field">
+      <%= f.select :year, Doctor::YEARS, class: "form-control" %>
+    </div><br/>
+ 
+    <label>Должность</label><br/>
+    <div class="field">
+      <%= f.select :title, Doctor::TITLES, class: "form-control" %>
+    </div><br/>
+    
+    <%= f.submit 'Создать', :class => 'btn btn-primary' %>
+    
+  <% end %>
+</div>
